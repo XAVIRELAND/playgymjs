@@ -1,0 +1,50 @@
+{
+  "playgymCollection": [
+    {
+      "id": "01",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "name": "Homer Simpson",
+      "address": "Springfield, Mass",
+      "gender": "male",
+      "height": 1.7,
+      "startingweight": 101,
+      "assessments": [
+        {
+          "id": "03",
+          "weight": 123.3,
+          "chest": 45,
+          "thigh": 12.5,
+          "upperarm": 23.3,
+          "waist": 32,
+          "hips": 38,
+          "trend": true,
+          "date": "2019-03-10 08:35:00"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "name": "Bart Simpson",
+      "address": "Springfield, Mass",
+      "gender": "Male",
+      "height": 1.2,
+      "startingweight": 67,
+      "assessments": [
+        {
+          "id": "05",
+          "weight": 66.3,
+          "chest": 45,
+          "thigh": 7,
+          "upperarm": 17.3,
+          "waist": 31,
+          "hips": 36,
+          "trend": true,
+          "date": "2019-07-25 09:35:00"
+        }
+      ]
+    }
+  ]
+}
