@@ -5,36 +5,43 @@ const playgymStore = require("../models/playgym-store");
 const uuid = require("uuid");
 
 const dashboard = {
-  index(request, response) {
-    logger.info("dashboard rendering");
-    const viewData = {
-      title: "Playgym Dashboard",
-      memberlists: playgymStore.getAllMemberlist(),
-    };
-    logger.info("about to render", playgymStore.getAllMemberlist());
-    response.render("dashboard", viewData);
-  },
+    index(request, response) {
+        const memberlistId = request.params.id;
+        logger.debug("Memberlist id = ", memberlistId);
+        const viewData = {
+            title: "Dashboard",
+            memberlist: playgymStore.getMemberlist(memberlistId)
+        };
+        response.render("dashboard", viewData);
+    },
 
-  deleteMemberlist(request, response) {
-    const memberlistId = request.params.id;
-    logger.debug(`Deleting Memberlist ${memberlistId}`);
-    playgymStore.removeMemberlist(memberlistId);
-    response.redirect("/dashboard");
-  },
 
-  addMemberlist(request, response) {
-    const newMemberList = {
-      id: uuid(),
-      title: request.body.title,
-      assessments: []
-    };
-    logger.debug("Creating a new Memberlist", newMemberList);
-    playgymStore.addMemberlist(newMemberList);
-    response.redirect("/dashboard");
-  }
+
+    deleteAssessment(request, response) {
+        const memberlistId = request.params.id;
+        const assessmentId = request.params.assessmentid;
+        logger.debug(`Deleting Assessment ${assessmentId} from Memberlist ${memberlistId}`);
+        playgymStore.removeAssessment(memberlistId, assessmentId);
+        response.redirect("/dashboard/" + memberlistId);
+    },
+
+    addAssessment(request, response) {
+        const memberlistid = request.params.id;
+        const memberlist = playgymStore.getMemberlist(memberlistid);
+        const newAssessment = {
+            id: uuid(),
+            weight: request.body.weight,
+            chest: request.body.chest,
+            thigh: request.body.thigh,
+            upperarm: request.body.upperarm,
+            waist: request.body.waist,
+            hips: request.body.hips
+
+        };
+        logger.debug("New Assessment = ", newAssessment);
+        playgymStore.addAssessment(memberlistid, newAssessment);
+        response.redirect("/dashboard/" + memberlistid);
+    }
 };
 
 module.exports = dashboard;
-
-
-

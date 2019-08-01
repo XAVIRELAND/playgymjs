@@ -10,6 +10,11 @@ const playgymStore = {
     }),
     collection: "playgymCollection",
 
+    getUserPlaylists(userid) {
+        return this.store.findBy(this.collection, { userid: userid });
+    },
+
+
     getAllMemberlist() {
         return this.store.findAll(this.collection);
     },
@@ -47,6 +52,12 @@ const playgymStore = {
         const assessments = memberlist.assessments;
         _.remove(assessments, { id: assessmentId });
         this.store.save();
+    },
+    addComment(id, comment) {
+        const memberlist = this.getMemberlist(id);
+        memberlist.assessments.push(comment);
+        this.store.save();
+
     }
 };
 

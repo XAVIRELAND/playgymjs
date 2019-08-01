@@ -20,6 +20,28 @@
           "hips": 38,
           "trend": true,
           "date": "2019-03-10 08:35:00"
+        },
+        {
+          "id": "04",
+          "weight": 123.3,
+          "chest": 45,
+          "thigh": 12,
+          "upperarm": 23.3,
+          "waist": 31,
+          "hips": 36,
+          "trend": true,
+          "date": "2019-07-19 08:31:00"
+        },
+        {
+          "id": "04",
+          "weight": 123.3,
+          "chest": 45,
+          "thigh": 12,
+          "upperarm": 23.3,
+          "waist": 31,
+          "hips": 36,
+          "trend": true,
+          "date": "2019-07-19 08:31:00"
         }
       ]
     },

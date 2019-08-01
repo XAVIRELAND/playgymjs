@@ -3,17 +3,24 @@
 const express = require("express");
 const router = express.Router();
 
-const dashboard = require("./controllers/dashboard.js");
-const about = require("./controllers/about.js");
-const memberlist = require("./controllers/memberlist.js");
 
-router.get("/", dashboard.index);
-router.get("/dashboard", dashboard.index);
-router.get("/dashboard/deletememberlist/:id", dashboard.deleteMemberlist);
-router.post("/dashboard/addmemberlist", dashboard.addMemberlist);
+const trainerdashboard = require("./controllers/trainerdashboard.js");
+const about = require("./controllers/about.js");
+const dashboard = require("./controllers/dashboard.js");
+const trainerassessment = require("./controllers/trainerassessment.js");
+
+
+router.get("/", trainerdashboard.index);
+router.get("/trainerdashboard", trainerdashboard.index);
+router.get("/trainerdashboard/deletememberlist/:id", trainerdashboard.deleteMemberlist);
+router.post("/trainerdashboard/addmemberlist", trainerdashboard.addMemberlist);
 
 router.get("/about", about.index);
-router.get("/memberlist/:id", memberlist.index);
-router.get("/memberlist/:id/deleteassessment/:assessmentid", memberlist.deleteAssessment);
-router.post("/memberlist/:id/addassessment", memberlist.addAssessment);
+router.get("/dashboard/:id", dashboard.index);
+router.get("/dashboard/:id/deleteassessment/:assessmentid", dashboard.deleteAssessment);
+router.post("/dashboard/:id/addassessment", dashboard.addAssessment);
+
+router.get("/trainerassessment/:id", trainerassessment.index);
+router.post("/trainerassessment/:id/addcomment/assessmentid", trainerassessment.addComment);
+
 module.exports = router;
