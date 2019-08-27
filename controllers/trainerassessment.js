@@ -9,26 +9,21 @@ const trainerassessment = {
         const memberlistId = request.params.id;
         logger.debug("Memberlist id = ", memberlistId);
         const viewData = {
-            title: "Dashboard",
+            title: "Trainerassessment",
             memberlist: playgymStore.getMemberlist(memberlistId)
         };
         response.render("trainerassessment", viewData);
     },
 
     addComment(request, response) {
-        const memberlistid = request.params.id;
-        const memberlist = playgymStore.getMemberlist(memberlistid);
+
         const assessmentId = request.params.assessmentid;
-        const newComment = {
-            id: uuid(),
-            comment: request.body.comment,
+        const memberlistid = request.params.id;
 
-        };
-        logger.debug("New Comment = ", newComment);
-        playgymStore.addComment(memberlistid,assessmentId, newComment);
-        response.redirect("/trainerassessment/" + memberlistid);
-    }
-
+        logger.debug("New Comment = ", request.body.comment);
+        playgymStore.addComment(memberlistid, assessmentId, request.body.comment);
+        response.redirect("/trainerassessment/" + assessmentId);
+    },
 };
 
 module.exports = trainerassessment;

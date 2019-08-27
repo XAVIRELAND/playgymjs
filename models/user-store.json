@@ -1,18 +1,38 @@
 {
   "users": [
     {
-      "firstName": "homer",
-      "lastName": "simpson",
-      "email": "homer@simpson.com",
-      "password": "secret",
-      "id": "3ad52697-6d98-4d80-8273-084de55a86c0"
-    },
-    {
-      "firstName": "marge",
-      "lastName": "simpson",
+      "name": "marge ",
+      "gender": "simpson",
       "email": "marge@simpson.com",
       "password": "secret",
-      "id": "2b6f0989-7b7f-4a38-ad26-aa06b922d751"
+      "address": "Springfield, Mass",
+      "height": "175",
+      "startingWeight": "85",
+      "id": "f3a0088a-6417-47b4-97e2-604fffdaa3ec",
+      "role": "T"
+    },
+    {
+      "name": "Bart ",
+      "gender": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "address": "Springfield, Mass",
+      "height": "175",
+      "startingWeight": "85",
+      "id": "c217b5ed-f7fb-4f6b-b97b-ad375995abe8",
+      "role": "M"
+    },
+
+    {
+      "name": "Homer",
+      "gender": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "address": "Springfield, Mass",
+      "height": "182",
+      "startingWeight": "98",
+      "id": "d1279422-a76b-4f16-9fa1-56b591a79fc9",
+      "role": "M"
     }
   ]
 }

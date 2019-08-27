@@ -13,6 +13,7 @@
             <th>Upper Arm</th>
             <th>Waist</th>
             <th>Hips</th>
+            <th>Trend</th>
             <th>Comment</th>
         </tr>
         </thead>
@@ -26,13 +27,13 @@
             <td>{{waist}}</td>
             <td>{{hips}}</td>
             <td>{{trend}}</td>
-            <td></td>
+            <td>{{comment}}</td>
         </tr>
         </tbody>
     </table>
     <br>
     <div>
-        <form class="ui large form" action="/trainerassessment/{{memberlist.id}}/addComment/{{assessment.id}}" method="POST">
+        <form class="ui large form" action="../trainerassessment/{{memberlist.id}}/addComment/{{id}}" method="POST">
             <div class="field">
                 <label>Comment</label>
                 <input placeholder="Comment" type="text" name="comment">

@@ -1,17 +1,20 @@
 "use strict";
-
+const accounts = require ('./accounts.js');
 const logger = require("../utils/logger");
+const userStore = require("../models/user-store")
 const playgymStore = require("../models/playgym-store");
+const bmiutils = require('../utils/BMI');
 const uuid = require("uuid");
 
 const dashboard = {
     index(request, response) {
-        const memberlistId = request.params.id;
-        logger.debug("Memberlist id = ", memberlistId);
+        const memberlistid = request.params.id;
+        logger.debug("Memberlist id = ", memberlistid);
         const viewData = {
             title: "Dashboard",
-            memberlist: playgymStore.getMemberlist(memberlistId)
+            memberlist: playgymStore.getMemberlist(memberlistid),
         };
+
         response.render("dashboard", viewData);
     },
 
@@ -38,9 +41,10 @@ const dashboard = {
             hips: request.body.hips
 
         };
+        
         logger.debug("New Assessment = ", newAssessment);
         playgymStore.addAssessment(memberlistid, newAssessment);
-        response.redirect("/dashboard/" + memberlistid);
+        response.redirect("/dashboard/" + memberlistid );
     }
 };
 

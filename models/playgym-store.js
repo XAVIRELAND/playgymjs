@@ -10,7 +10,10 @@ const playgymStore = {
     }),
     collection: "playgymCollection",
 
-    getUserPlaylists(userid) {
+
+
+
+    getUserMemberlists(userid) {
         return this.store.findBy(this.collection, { userid: userid });
     },
 
@@ -21,7 +24,14 @@ const playgymStore = {
 
     getMemberlist(id) {
         return this.store.findOneBy(this.collection,{ id: id });
+
     },
+
+    getAssessment(id) {
+        return this,store.findOneBy(this.collection.assessments, { id: id });
+    },
+
+
 
     addMemberlist(memberlist) {
         this.store.add(this.collection, memberlist);
@@ -43,9 +53,24 @@ const playgymStore = {
     addAssessment(id, assessment) {
         const memberlist = this.getMemberlist(id);
         memberlist.assessments.push(assessment);
+        memberlist.assessments.reverse();
+
+        Date.prototype.today = function () {
+            return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+        }
+
+
+        Date.prototype.timeNow = function () {
+            return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+        }
+        const newDate = new Date();
+        const dateTime = newDate.today() +" "+newDate.timeNow();
+        assessment.date = dateTime
+
         this.store.save();
 
     },
+
 
     removeAssessment(id, assessmentId) {
         const memberlist = this.getMemberlist(id);
@@ -53,10 +78,18 @@ const playgymStore = {
         _.remove(assessments, { id: assessmentId });
         this.store.save();
     },
-    addComment(id, comment) {
+
+    addComment(id, assessmentId, comment) {
+        console.info(id)
+        console.info(comment)
         const memberlist = this.getMemberlist(id);
-        memberlist.assessments.push(comment);
+        const assessments = memberlist.assessments;
+        const assessment = _.get(assessments, {id: assessmentId})
+        assessment.comment = comment;
+        _.update(assessments, assessment)
+        memberlist.assessments = assessments
         this.store.save();
+        console.info('saved successfully')
 
     }
 };

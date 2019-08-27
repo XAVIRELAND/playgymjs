@@ -1,70 +1,44 @@
 {
   "playgymCollection": [
     {
-      "id": "01",
-      "email": "homer@simpson.com",
-      "password": "secret",
-      "name": "Homer Simpson",
-      "address": "Springfield, Mass",
-      "gender": "male",
-      "height": 1.7,
-      "startingweight": 101,
+      "id": "c217b5ed-f7fb-4f6b-b97b-ad375995abe8",
+      "name": "Bart Simpson",
       "assessments": [
         {
-          "id": "03",
-          "weight": 123.3,
-          "chest": 45,
-          "thigh": 12.5,
-          "upperarm": 23.3,
-          "waist": 32,
-          "hips": 38,
-          "trend": true,
-          "date": "2019-03-10 08:35:00"
-        },
-        {
-          "id": "04",
-          "weight": 123.3,
-          "chest": 45,
-          "thigh": 12,
-          "upperarm": 23.3,
-          "waist": 31,
-          "hips": 36,
-          "trend": true,
-          "date": "2019-07-19 08:31:00"
-        },
-        {
-          "id": "04",
-          "weight": 123.3,
-          "chest": 45,
-          "thigh": 12,
-          "upperarm": 23.3,
-          "waist": 31,
-          "hips": 36,
-          "trend": true,
-          "date": "2019-07-19 08:31:00"
+          "id": "b546c974-709f-4bbc-9f42-1c7676dfd1b2",
+          "weight": "85",
+          "chest": "87",
+          "thigh": "35",
+          "upperarm": "20",
+          "waist": "36",
+          "hips": "38",
+          "date": "27/08/2019 11:45:27"
         }
       ]
     },
     {
-      "id": "02",
-      "email": "bart@simpson.com",
-      "password": "secret",
-      "name": "Bart Simpson",
-      "address": "Springfield, Mass",
-      "gender": "Male",
-      "height": 1.2,
-      "startingweight": 67,
+      "id": "d1279422-a76b-4f16-9fa1-56b591a79fc9",
+      "name": "Homer",
       "assessments": [
         {
-          "id": "05",
-          "weight": 66.3,
-          "chest": 45,
-          "thigh": 7,
-          "upperarm": 17.3,
-          "waist": 31,
-          "hips": 36,
-          "trend": true,
-          "date": "2019-07-25 09:35:00"
+          "id": "68c7372a-ebef-4503-88a7-c91f93adecc2",
+          "weight": "95",
+          "chest": "90",
+          "thigh": "36.5",
+          "upperarm": "22.1",
+          "waist": "37",
+          "hips": "39",
+          "date": "27/08/2019 11:47:51"
+        },
+        {
+          "id": "0874e519-185b-444e-a5e2-0d0c37554e32",
+          "weight": "96",
+          "chest": "90",
+          "thigh": "37",
+          "upperarm": "22.9",
+          "waist": "38",
+          "hips": "41",
+          "date": "27/08/2019 11:46:56"
         }
       ]
     }
