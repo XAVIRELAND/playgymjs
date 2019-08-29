@@ -5,20 +5,32 @@
       "name": "Bart Simpson",
       "assessments": [
         {
-          "id": "b546c974-709f-4bbc-9f42-1c7676dfd1b2",
+          "id": "b783497c-4e60-4a7c-a936-32e60ffaf29c",
           "weight": "85",
-          "chest": "87",
+          "chest": "86",
           "thigh": "35",
-          "upperarm": "20",
-          "waist": "36",
-          "hips": "38",
-          "date": "27/08/2019 11:45:27"
+          "upperarm": "22",
+          "waist": "35",
+          "hips": "37",
+          "date": "29/08/2019 01:24:10",
+          "comment": "getting fat"
+        },
+        {
+          "id": "963e0422-7119-4bf9-a65c-d6af0c203fab",
+          "weight": "75",
+          "chest": "85",
+          "thigh": "25",
+          "upperarm": "15",
+          "waist": "34",
+          "hips": "36",
+          "date": "29/08/2019 01:23:28",
+          "comment": "good start"
         }
       ]
     },
     {
       "id": "d1279422-a76b-4f16-9fa1-56b591a79fc9",
-      "name": "Homer",
+      "name": "Homer Simpson",
       "assessments": [
         {
           "id": "68c7372a-ebef-4503-88a7-c91f93adecc2",
@@ -28,7 +40,8 @@
           "upperarm": "22.1",
           "waist": "37",
           "hips": "39",
-          "date": "27/08/2019 11:47:51"
+          "date": "27/08/2019 11:47:51",
+          "comment": "need to exercixe"
         },
         {
           "id": "0874e519-185b-444e-a5e2-0d0c37554e32",
@@ -38,7 +51,8 @@
           "upperarm": "22.9",
           "waist": "38",
           "hips": "41",
-          "date": "27/08/2019 11:46:56"
+          "date": "27/08/2019 11:46:56",
+          "comment": "Control your diet"
         }
       ]
     }

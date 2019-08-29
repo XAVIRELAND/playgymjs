@@ -26,14 +26,14 @@
             <td>{{upperarm}}</td>
             <td>{{waist}}</td>
             <td>{{hips}}</td>
-            <td>{{trend}}</td>
+            <td><a class="ui teal tag label"></a></td>
             <td>{{comment}}</td>
         </tr>
         </tbody>
     </table>
     <br>
     <div>
-        <form class="ui large form" action="../trainerassessment/{{memberlist.id}}/addComment/{{id}}" method="POST">
+        <form class="ui large form" action="../trainerassessment/{{../memberlist.id}}/addComment/{{id}}" method="POST">
             <div class="field">
                 <label>Comment</label>
                 <input placeholder="Comment" type="text" name="comment">

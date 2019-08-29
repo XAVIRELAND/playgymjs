@@ -1,10 +1,9 @@
-'use strict';
-
-const bmiutils = {
+const analytics = {
 
     calcBMI:function(weight, height) {
-        const bmi = weight / (height * height);
-        return bmi.toFixed(2);
+        const bmi = Math.round(10 * weight / Math.pow(height/100, 2))/10;
+        return  bmi.toFixed(1);
+        console.log(bmi)
     },
 
     bmiCat:function(bmi) {
@@ -33,4 +32,4 @@ const bmiutils = {
     }
 };
 
-module.export = bmiutils;
+module.exports = analytics;

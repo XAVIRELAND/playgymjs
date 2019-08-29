@@ -80,16 +80,13 @@ const playgymStore = {
     },
 
     addComment(id, assessmentId, comment) {
-        console.info(id)
-        console.info(comment)
         const memberlist = this.getMemberlist(id);
         const assessments = memberlist.assessments;
-        const assessment = _.get(assessments, {id: assessmentId})
+        const assessment = _.find(assessments, {id: assessmentId});
         assessment.comment = comment;
-        _.update(assessments, assessment)
-        memberlist.assessments = assessments
+        _.update(assessments, assessment);
+        memberlist.assessments = assessments;
         this.store.save();
-        console.info('saved successfully')
 
     }
 };

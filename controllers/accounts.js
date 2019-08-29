@@ -16,7 +16,6 @@ const accounts = {
     login(request, response) {
         const viewData = {
             title: 'Login to the Service',
-
         };
         response.render('login', viewData);
     },
@@ -34,11 +33,29 @@ const accounts = {
     },
 
     update(request, response) {
+
+        const user = accounts.getCurrentUser(request);
         const viewData = {
-        title: 'Updating details',
-    };
-    response.render('accountsettings',viewData);
+            user: user,
+            title: 'Update your details',
+        };
+            response.render('accountsettings', viewData);
+        },
+
+    updatedetails(request, response) {
+        const loggedInUser = accounts.getCurrentUser(request);
+        console.log(request);
+        const updateuser = request.body;
+        loggedInUser.name = updateuser.name;
+        loggedInUser.gender = updateuser.gender;
+        loggedInUser.email = updateuser.email;
+        loggedInUser.address = updateuser.address;
+
+        logger.debug('Updating details', loggedInUser);
+        userstore.updateUser(loggedInUser);
+        response.redirect('/login');
     },
+
 
     register(request, response) {
         const user = request.body;
@@ -73,7 +90,7 @@ const accounts = {
     },
 
     getCurrentUser(request) {
-        const userEmail = request.cookies.memberlist;
+        const userEmail = request.cookies['playgym'];
         return userstore.getUserByEmail(userEmail);
     }
 };

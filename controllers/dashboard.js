@@ -3,21 +3,28 @@ const accounts = require ('./accounts.js');
 const logger = require("../utils/logger");
 const userStore = require("../models/user-store")
 const playgymStore = require("../models/playgym-store");
-const bmiutils = require('../utils/BMI');
+const analytics = require("../utils/BMI.js");
 const uuid = require("uuid");
 
 const dashboard = {
     index(request, response) {
+
         const memberlistid = request.params.id;
+        const assessments = playgymStore.getMemberlist(memberlistid).assessments;
+        const weight = assessments[0].weight;
+        const heigth = userStore.getUserById(memberlistid).height;
+        const bmi = analytics.calcBMI(weight, heigth);
+        const bmiCat = analytics.bmiCat(bmi);
         logger.debug("Memberlist id = ", memberlistid);
         const viewData = {
             title: "Dashboard",
             memberlist: playgymStore.getMemberlist(memberlistid),
+            BMI: bmi,
+            bmiCat:bmiCat,
         };
 
         response.render("dashboard", viewData);
     },
-
 
 
     deleteAssessment(request, response) {
