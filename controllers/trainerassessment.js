@@ -3,7 +3,7 @@
 const logger = require("../utils/logger");
 const playgymStore = require("../models/playgym-store");
 const userStore = require("../models/user-store");
-const analytics = require("../utils/BMI.js");
+const analytics = require("../utils/analytics.js");
 const uuid = require("uuid");
 
 const trainerassessment = {

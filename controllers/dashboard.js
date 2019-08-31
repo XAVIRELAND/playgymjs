@@ -3,28 +3,40 @@ const accounts = require ('./accounts.js');
 const logger = require("../utils/logger");
 const userStore = require("../models/user-store")
 const playgymStore = require("../models/playgym-store");
-const analytics = require("../utils/BMI.js");
+const analytics = require("../utils/analytics.js");
 const uuid = require("uuid");
 
 const dashboard = {
     index(request, response) {
 
         const memberlistid = request.params.id;
-        const assessments = playgymStore.getMemberlist(memberlistid).assessments;
-        const weight = assessments[0].weight;
-        const heigth = userStore.getUserById(memberlistid).height;
+        const user = userStore.getUserById(memberlistid)
+        const memberlist = playgymStore.getMemberlist(memberlistid);
+        let weight;
+        if (memberlist.assessments.length > 0) {
+            weight = memberlist.assessments[0].weight;
+        } else {
+            weight = user.startingWeight
+        }
+        const heigth = user.height;
         const bmi = analytics.calcBMI(weight, heigth);
         const bmiCat = analytics.bmiCat(bmi);
+        const idealWeightIndicator = analytics.isIdealBodyWeight(user, weight);
         logger.debug("Memberlist id = ", memberlistid);
+
         const viewData = {
             title: "Dashboard",
-            memberlist: playgymStore.getMemberlist(memberlistid),
+            memberlist: memberlist,
             BMI: bmi,
-            bmiCat:bmiCat,
+            bmiCat: bmiCat,
+            idealWeightIndicator: idealWeightIndicator,
+
         };
 
         response.render("dashboard", viewData);
+
     },
+
 
 
     deleteAssessment(request, response) {
@@ -45,10 +57,10 @@ const dashboard = {
             thigh: request.body.thigh,
             upperarm: request.body.upperarm,
             waist: request.body.waist,
-            hips: request.body.hips
+            hips: request.body.hips,
 
         };
-        
+
         logger.debug("New Assessment = ", newAssessment);
         playgymStore.addAssessment(memberlistid, newAssessment);
         response.redirect("/dashboard/" + memberlistid );

@@ -27,8 +27,7 @@ const userStore = {
 
     updateUser(user) {
         this.store.save()
-    }
-
+    },
 };
 
 module.exports = userStore;

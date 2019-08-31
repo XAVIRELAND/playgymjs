@@ -3,15 +3,13 @@
 
 const _ = require("lodash");
 const JsonStore = require("./json-store");
+const analytics = require("../utils/analytics")
 
 const playgymStore = {
     store: new JsonStore("./models/playgym-store.json", {
         playgymCollection: []
     }),
     collection: "playgymCollection",
-
-
-
 
     getUserMemberlists(userid) {
         return this.store.findBy(this.collection, { userid: userid });
@@ -31,8 +29,6 @@ const playgymStore = {
         return this,store.findOneBy(this.collection.assessments, { id: id });
     },
 
-
-
     addMemberlist(memberlist) {
         this.store.add(this.collection, memberlist);
         this.store.save();
@@ -51,9 +47,19 @@ const playgymStore = {
 
 
     addAssessment(id, assessment) {
+
         const memberlist = this.getMemberlist(id);
-        memberlist.assessments.push(assessment);
-        memberlist.assessments.reverse();
+        let prev_weight;
+        if (memberlist.assessments.length > 0) {
+            prev_weight = memberlist.assessments[0].weight
+        } else {
+            prev_weight = memberlist.startingWeight
+        }
+
+        assessment.trend = analytics.calcTrendColor(prev_weight, assessment.weight)
+
+        memberlist.assessments.unshift(assessment);
+
 
         Date.prototype.today = function () {
             return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
@@ -63,6 +69,7 @@ const playgymStore = {
         Date.prototype.timeNow = function () {
             return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
         }
+
         const newDate = new Date();
         const dateTime = newDate.today() +" "+newDate.timeNow();
         assessment.date = dateTime

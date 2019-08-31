@@ -26,16 +26,23 @@
                 <td>{{upperarm}}</td>
                 <td>{{waist}}</td>
                 <td>{{hips}}</td>
-                <td><a class="ui teal tag label"></a></td>
+                <td>
+                    <a class="ui {{trend}} tag label"></a>
+                   </td>
                 <td>{{comment}}</td>
                 <td>
                     <a href="/dashboard/{{../memberlist.id}}/deleteAssessment/{{id}}" class="ui icon button">
                         <i class="icon trash"></i>
                     </a>
                 </td>
-
             </tr>
         {{/each}}
         </tbody>
     </table>
+    <div id={{timer}}>
+        <div id="days"></div>
+        <div id="hours"></div>
+        <div id="minutes"></div>
+        <div id="seconds"></div>
+    </div>
 </section>

@@ -15,9 +15,11 @@ router.get('/login', accounts.login);
 router.get('/signup', accounts.signup);
 router.get('/logout', accounts.logout);
 router.get('/update', accounts.update);
+router.get('/goals', accounts.goals);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 router.post('/updatedetails', accounts.updatedetails);
+router.post('/setGoals', accounts.setGoals);
 
 
 

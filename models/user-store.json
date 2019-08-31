@@ -31,7 +31,9 @@
       "height": "182",
       "startingWeight": "98",
       "id": "d1279422-a76b-4f16-9fa1-56b591a79fc9",
-      "role": "M"
+      "role": "M",
+      "weightGoal": "74",
+      "dateGoal": "01/09/2019"
     }
   ]
 }

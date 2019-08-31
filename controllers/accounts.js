@@ -92,6 +92,25 @@ const accounts = {
     getCurrentUser(request) {
         const userEmail = request.cookies['playgym'];
         return userstore.getUserByEmail(userEmail);
+    },
+
+    goals(request, response) {
+
+        const user = accounts.getCurrentUser(request);
+        const viewData = {
+            user: user,
+            title: 'Set your Goals',
+        };
+        response.render('goals', viewData);
+    },
+
+    setGoals(request,response){
+        const user = accounts.getCurrentUser(request);
+        user.weightGoal = request.body.weightGoal;
+        user.dateGoal = request.body.dateGoal;
+        logger.debug("Creating  new Goals", user);
+        userstore.updateUser(user);
+        response.redirect('dashboard/'+user.id);
     }
 };
 
