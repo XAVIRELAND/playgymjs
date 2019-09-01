@@ -1,7 +1,7 @@
 "use strict";
 const accounts = require ('./accounts.js');
 const logger = require("../utils/logger");
-const userStore = require("../models/user-store")
+const userStore = require("../models/user-store");
 const playgymStore = require("../models/playgym-store");
 const analytics = require("../utils/analytics.js");
 const uuid = require("uuid");
@@ -16,12 +16,16 @@ const dashboard = {
         if (memberlist.assessments.length > 0) {
             weight = memberlist.assessments[0].weight;
         } else {
-            weight = user.startingWeight
+            weight = user.startingWeight;
         }
         const heigth = user.height;
         const bmi = analytics.calcBMI(weight, heigth);
         const bmiCat = analytics.bmiCat(bmi);
         const idealWeightIndicator = analytics.isIdealBodyWeight(user, weight);
+        const date = user.dateGoal;
+        const targetWeight = user.weightGoal;
+        const weightDif= analytics.calcWeightDif(weight,targetWeight);
+
         logger.debug("Memberlist id = ", memberlistid);
 
         const viewData = {
@@ -30,9 +34,12 @@ const dashboard = {
             BMI: bmi,
             bmiCat: bmiCat,
             idealWeightIndicator: idealWeightIndicator,
-
-        };
-
+            date: date,
+            weight1: weight ,
+            weight2: targetWeight,
+            weightDif: weightDif,
+        }
+        console.log(bmiCat);
         response.render("dashboard", viewData);
 
     },

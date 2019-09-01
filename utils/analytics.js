@@ -1,12 +1,12 @@
 const analytics = {
 
-    calcBMI:function(weight, height) {
-        const bmi = Math.round(10 * weight / Math.pow(height/100, 2))/10;
-        return  bmi.toFixed(1);
+    calcBMI: function (weight, height) {
+        const bmi = Math.round(10 * weight / Math.pow(height / 100, 2)) / 10;
+        return bmi.toFixed(1);
 
     },
 
-    bmiCat:function(bmi) {
+    bmiCat: function (bmi) {
         if (bmi < 15.9) {
             return "Severely underweight";
         }
@@ -31,10 +31,10 @@ const analytics = {
 
     },
 
-    calcTrendColor:function(prev_weight,curr_weight) {
+    calcTrendColor: function (prev_weight, curr_weight) {
         var trend = prev_weight - curr_weight;
 
-        if(trend > 0) {
+        if (trend > 0) {
             return "ui teal tag label";
         } else {
             return "ui red tag label";
@@ -58,7 +58,7 @@ const analytics = {
             idealWeight = 45.5 + (2.3 * excessHeight);
         }
 
-        if  (weight == Math.round(idealWeight)){
+        if (weight == Math.round(idealWeight)) {
 
 
             isIdealBodyweight = 'green';
@@ -66,7 +66,13 @@ const analytics = {
 
 
         return isIdealBodyweight;
+    },
+    calcWeightDif: function (weight, targetWeight) {
+
+        let weightDif= weight - targetWeight;
+        return weightDif;
     }
+
 };
 
 module.exports = analytics;

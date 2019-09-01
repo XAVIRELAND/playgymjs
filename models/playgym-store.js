@@ -26,7 +26,7 @@ const playgymStore = {
     },
 
     getAssessment(id) {
-        return this,store.findOneBy(this.collection.assessments, { id: id });
+        return this.store.findOneBy(this.collection.assessments, { id: id });
     },
 
     addMemberlist(memberlist) {

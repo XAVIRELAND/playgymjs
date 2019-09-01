@@ -1,26 +1,13 @@
 {
   "users": [
     {
-      "name": "marge ",
-      "gender": "simpson",
+      "name": "Marge Simpson",
+      "gender": "Female",
       "email": "marge@simpson.com",
       "password": "secret",
-      "address": "Springfield, Mass",
-      "height": "175",
-      "startingWeight": "85",
-      "id": "f3a0088a-6417-47b4-97e2-604fffdaa3ec",
+      "address": "Springfield, Mass 2",
+      "id": "b83d41bb-2f92-42aa-9da3-5894bc3e28a1",
       "role": "T"
-    },
-    {
-      "name": "Bart Simpson",
-      "gender": "Male",
-      "email": "bart@simpson.com",
-      "password": "secret",
-      "address": "Springfield, Mass",
-      "height": "175",
-      "startingWeight": "85",
-      "id": "c217b5ed-f7fb-4f6b-b97b-ad375995abe8",
-      "role": "M"
     },
     {
       "name": "Homer Simpson",
@@ -29,11 +16,11 @@
       "password": "secret",
       "address": "Springfield, Mass 1",
       "height": "182",
-      "startingWeight": "98",
-      "id": "d1279422-a76b-4f16-9fa1-56b591a79fc9",
+      "startingWeight": "102",
+      "id": "733cd168-7373-4e08-bb7a-48c75fab91db",
       "role": "M",
-      "weightGoal": "74",
-      "dateGoal": "01/09/2019"
+      "weightGoal": "85",
+      "dateGoal": "Sept 21 2019"
     }
   ]
 }

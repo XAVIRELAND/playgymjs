@@ -44,7 +44,6 @@ const accounts = {
 
     updatedetails(request, response) {
         const loggedInUser = accounts.getCurrentUser(request);
-        console.log(request);
         const updateuser = request.body;
         loggedInUser.name = updateuser.name;
         loggedInUser.gender = updateuser.gender;
